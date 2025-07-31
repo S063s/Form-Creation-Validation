@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const registrationForm = document.getElementById("form");
-    registrationForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+    registrationForm.addEventListener("submit", function(event) {
+        event.preventDefault();
         if (validateForm()) {
             registrationForm.submit();
-        }
+            alert("Form submitted successfully!");
 
         const feedbackDiv = document.getElementById("form-feedback");
         feedbackDiv.addEventListener("click", function() {
