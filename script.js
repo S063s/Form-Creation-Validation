@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const registrationForm = document.getElementById("form");
+    const registrationForm = document.querySelector("form");
     registrationForm.addEventListener("submit", function(event) {
         event.preventDefault();
-        if (validateForm()) {
-            registrationForm.submit();
-            alert("Form submitted successfully!");
 
-        const feedbackDiv = document.getElementById("form-feedback");
-        feedbackDiv.addEventListener("click", function() {
-            feedbackDiv.style.display = "block";
-        });
+        let isvalid = true;
+        const messages = [];
+
+    const feedbackDiv = document.getElementById("form-feedback");
+    feedbackDiv.addEventListener("submit", function() {
+        feedbackDiv.style.display = "block";
     });
 });
 
@@ -50,10 +49,4 @@ function validateForm() {
     }
 
     return true;
-}
-
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
 }
