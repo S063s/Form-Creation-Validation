@@ -3,20 +3,20 @@ async function fetchUserData(apiUrl) {
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
-
-    return apiUrl.json();
 }
 
 const dataContainer = document.getElementById("api-data");
 
 try {
-    const response = await fetchUserData("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch(apiUrl);
     dataContainer.innerHTML = JSON.stringify(response);
 } catch (error) {
     console.error('Error fetching user data:', error);
     dataContainer.innerHTML = "";
 
 }
+
+const response = await response.json();
 
     const userList = document.getElementById("user-list");
     response.forEach(user => {
