@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     registrationForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        let isvalid = true;
+        let isValid = true;
         const messages = [];
 
     const feedbackDiv = document.getElementById("form-feedback");
