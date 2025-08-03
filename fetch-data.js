@@ -20,9 +20,18 @@ const response = await response.json();
 
     const userList = document.getElementById("user-list");
     response.forEach(user => {
-        const userList = document.createElement("li");
-        userList.textContent = `${user.name} (${user.email})`;
-        userList.appendChild(userList);
-        userList.appendChild(dataContainer);
+        const userItem = document.createElement("li");
+        userItem.textContent = `${user.name} (${user.email})`;
+        userList.appendChild(userItem);
+
+        const userDetails = document.createElement("ul");
+        userDetails.innerHTML = `
+            <li>ID: ${user.id}</li>
+            <li>Name: ${user.name}</li>
+            <li>Email: ${user.email}</li>
+        `;
+        userItem.appendChild(userDetails);
     });
+
+
 
