@@ -14,23 +14,23 @@ const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value.trim();
 
 let isValid = true;
-let errorMessage = "";
 let messages = "";
 feedbackDiv.textContent = "Registration successful!";
 feedbackDiv.style.color = "#28a745";
 
+let errorpush = "";
 feedbackDiv.innerHTML = "";
 feedbackDiv.style.color = "#dc3545";
 
 if(username.length < 3) {
     isValid = false;
-    message += "Username must be at least 3 characters long.<br>";
+    errorpush += "Username must be at least 3 characters long.<br>";
 }
 if(email === " " || !email.includes("@") || !email.includes(".")) {
     isValid = false;
-    message += "Please enter a valid email address.<br>";
+    errorpush += "Please enter a valid email address.<br>";
 }
 if(password.length < 8) {
     isValid = false;
-    message += "Password must be at least 8 characters long.<br>";
+    errorpush += "Password must be at least 8 characters long.<br>";
 }
