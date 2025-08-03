@@ -1,52 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const registrationForm = document.querySelector("form");
-    registrationForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        let isValid = true;
-        const messages = [];
-
+    const form = document.getElementById("registration-form");
     const feedbackDiv = document.getElementById("form-feedback");
-    feedbackDiv.addEventListener("submit", function() {
+
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
         feedbackDiv.style.display = "block";
     });
 });
 
-function validateForm() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const age = document.getElementById("age").value.trim();
+const username = document.getElementById("username").value.trim();
+const email = document.getElementById("email").value.trim();
+const password = document.getElementById("password").value.trim();
 
+let isValid = true;
+let message = "";
+feedbackDiv.textContent = "Registration successful!";
+feedbackDiv.style.color = "#28a745";
 
-    if (name.length < 3) {
-        alert("Name must be at least 3 characters long.");
-        return false;
-    }
+feedbackDiv.innerHTML = "";
+feedbackDiv.style.color = "#dc3545";
 
-    if (!email.includes("@") || !email.includes(".")) {
-        alert("Email must contain '@' and '.' characters.");
-        return false;
-    }
-
-    if (name === "" || email === "" || age === "") {
-        alert("All fields are required.");
-        return false;
-    }
-
-    if (!validateEmail(email)) {
-        alert("Invalid email format.");
-        return false;
-    }
-
-    if (password.length < 8) {
-        alert("Password must be at least 8 characters long.");
-        return false;
-    }
-
-    if (isNaN(age) || age <= 0) {
-        alert("Invalid age. Age must be a positive number.");
-        return false;
-    }
-
-    return true;
+if(username.length < 3) {
+    isValid = false;
+    message += "Username must be at least 3 characters long.<br>";
+}
+if(email === " " || !email.includes("@") || !email.includes(".")) {
+    isValid = false;
+    message += "Please enter a valid email address.<br>";
+}
+if(password.length < 8) {
+    isValid = false;
+    message += "Password must be at least 8 characters long.<br>";
 }
