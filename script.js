@@ -15,22 +15,24 @@ const password = document.getElementById("password").value.trim();
 
 let isValid = true;
 let messages = "";
-feedbackDiv.textContent = "Registration successful!";
-feedbackDiv.style.color = "#28a745";
-
-let errorpush = "";
-feedbackDiv.innerHTML = "";
-feedbackDiv.style.color = "#dc3545";
 
 if(username.length < 3) {
     isValid = false;
-    errorpush += "Username must be at least 3 characters long.<br>";
+    messages += "Username must be at least 3 characters long.<br>";
 }
 if(email === " " || !email.includes("@") || !email.includes(".")) {
     isValid = false;
-    errorpush += "Please enter a valid email address.<br>";
+    messages += "Please enter a valid email address.<br>";
 }
 if(password.length < 8) {
     isValid = false;
-    errorpush += "Password must be at least 8 characters long.<br>";
+    messages += "Password must be at least 8 characters long.<br>";
+}
+
+if (isValid) {
+    feedbackDiv.textContent = "Registration successful!";
+    feedbackDiv.style.color = "#28a745";
+} else {
+    feedbackDiv.innerHTML = errorpush;
+    feedbackDiv.style.color = "#dc3545";
 }
