@@ -14,6 +14,7 @@ const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value.trim();
 
 let isValid = true;
+let errorMessage = "";
 let messages = "";
 feedbackDiv.textContent = "Registration successful!";
 feedbackDiv.style.color = "#28a745";
