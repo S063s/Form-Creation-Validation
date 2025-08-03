@@ -14,19 +14,19 @@ const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value.trim();
 
 let isValid = true;
-let messages = "";
+let errorMessages = [];
 
 if(username.length < 3) {
     isValid = false;
-    messages += "Username must be at least 3 characters long.<br>";
+    errorMessages.push("Username must be at least 3 characters long.<br>");
 }
 if(email === " " || !email.includes("@") || !email.includes(".")) {
     isValid = false;
-    messages += "Please enter a valid email address.<br>";
+    errorMessages.push("Please enter a valid email address.<br>");
 }
 if(password.length < 8) {
     isValid = false;
-    messages += "Password must be at least 8 characters long.<br>";
+    errorMessages.push("Password must be at least 8 characters long.<br>");
 }
 
 if (isValid) {
